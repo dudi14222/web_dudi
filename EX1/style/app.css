@@ -1,0 +1,380 @@
+:root{
+    background-color: #f7f7f7;
+}
+*{
+    box-sizing: border-box;
+}
+
+
+.top{
+    height: 42px;
+    background-color: white;  
+    width: 100%;
+}
+.image-logo{
+    padding-left: 25px;
+    padding-top: 1px;
+    float: left;
+}
+
+.sell-btn{
+    float: right;
+    background-color: #acb700;
+    height: 26px;
+    width: 110px;
+    text-align: center;
+    font-family: roboto-bold;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 1px 1px 1px 1px #7c7c01;
+    border-radius: 3px;
+    
+    padding-top: 5px;
+}
+.sell-btn:hover{
+    background-color: #a6b100;
+}
+
+.user-name{
+    font-family: roboto-light;
+    font-size: 12px;   
+    padding-right: 6px;
+    padding-bottom: 15px; 
+    float: right;
+}
+
+
+@font-face {
+  font-family: roboto-light;
+  src: url('../fonts/Roboto-Light.ttf');
+}
+
+
+@font-face {
+  font-family: roboto-bold;
+  src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: roboto-regular;
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+
+
+
+.list-reset{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navigation-image{
+    float: left;
+    position: relative;
+    bottom: 7px;
+    left: 2px;
+    
+}
+
+.navigation-bottom{    
+     width: 100%;
+     height: 1px;
+     box-shadow: 0px 1px 1px black;
+     opacity: 0.3;
+}
+.navigation-item{
+    background-color: #F4F4ED;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-family: roboto-light;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;  
+    float: left;
+    height: 44px;
+    width: 14.2857%;
+    
+    border-top-width: 6px;
+    border-top-style: solid;
+    border-right: 1px solid white;
+}
+
+.navigation-item--last{
+     border-right:none;
+}
+.navigation-item--all {
+    border-top-color: #CECEC4;
+}
+.navigation-item--all:hover{    
+    background-color: #CECEC4;
+}
+.navigation-item--electronics {
+    border-top-color: #FBBB12;
+    background-image: url('../images/electricity.png'); 
+    background-repeat: no-repeat; 
+}
+.navigation-item--electronics:hover{
+    background-image: url('../images/electricity_w.png');
+    background-color: #FBBB12;
+}
+.navigation-item--fashion {
+    border-top-color:  #B31E8D;  
+    background-image: url('../images/fashion.png'); 
+    background-repeat: no-repeat; 
+}
+.navigation-item--fashion:hover{
+    background-image: url('../images/fashion_w.png');
+    background-color: #B31E8D;
+}
+.navigation-item--home {
+    border-top-color:  #2AADAD; 
+    background-image: url('../images/home.png'); 
+    background-repeat: no-repeat;  
+}
+.navigation-item--home:hover{
+    background-image: url('../images/home_w.png');
+    background-color: #2AADAD;
+}
+.navigation-item--books {
+    border-top-color: #8E59B6;
+    background-image: url('../images/books.png'); 
+    background-repeat: no-repeat; 
+}
+.navigation-item--books:hover{
+    background-image: url('../images/books_w.png');
+    background-color: #8E59B6;
+}
+.navigation-item--children {
+    border-top-color: #E32F65;
+    background-image: url('../images/children.png'); 
+    background-repeat: no-repeat; 
+}
+.navigation-item--children:hover{
+    background-image: url('../images/children_w.png');
+    background-color: #E32F65;
+}
+
+.navigation-item--misc{
+ border-top-color: #E87B21;  
+ background-image: url('../images/misc.png'); 
+ background-repeat: no-repeat; 
+}
+.navigation-item--misc:hover{
+    background-image: url('../images/misc_w.png');
+    background-color: #E87B21;
+}
+
+body{
+    max-width: 1280px;
+    margin: auto;
+}
+
+.content{
+  padding-left: 40px;
+}
+.items{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1248px) {
+    .item--h--4{
+        display: none;
+    }
+}
+
+@media (max-width: 950px) {
+    .item--h--3{
+        display: none;
+    }
+}
+
+@media (max-width: 652px) {
+    .item--h--2{
+        display: none;
+    }
+}
+
+
+.item--h{
+    width: 258px;
+    height: 30px;    
+    float: left;    
+    margin-bottom: 20px;
+    margin-right: 40px;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+
+.item{
+    border-style: solid;
+    border-color: #eaeaea;
+    border-width: 1px;
+    width: 258px;
+    height: 290px;    
+    float: left;    
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+}
+
+.border-electronics {
+    background-color: #FBBB12;
+}
+.border-fashion {
+    background-color:  #B31E8D;  
+}
+.border-home {
+    background-color:  #2AADAD;  
+}
+.border-books {
+    background-color: #8E59B6;
+}
+.border-children {
+    background-color: #E32F65;
+}
+.border-misc{
+ background-color: #E87B21;   
+}
+
+.image-price{
+    float:left;
+    position: relative;
+}
+.price-box{
+    position: absolute;
+    top: 0;
+    
+    background-color: black;
+    opacity: 0.84;
+}
+.price-box .price{
+    color: white;
+    padding-top: 9px;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-family: roboto-bold;
+    font-size: 17px;
+}
+
+.price-box .bid{
+    color: #BABABA;
+    padding-bottom: 7px;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-family: roboto-light;
+    font-size: 11px;
+}
+
+.item-description-box{
+    border-style: solid;
+    border-color: #eaeaea;
+    border-width: 1px;
+    width: 258px;
+    height: 80px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.desc{
+    color: #5B5B5B;
+    padding-top: 9px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-family: roboto-regolar;
+    font-size: 13px;
+}
+
+.seller{
+    color: #5B5B5B;
+    padding-bottom: 9px;
+    padding-left: 6px;
+    padding-top: 25px;
+    padding-right: 6px;
+    font-family: roboto-light;
+    font-size: 12px;
+}
+.seller--2lines{
+    padding-top: 10px;   
+}
+
+.item-image{
+    border-style: solid;
+    border-color: #eaeaea;
+    border-width: 1px;
+    width: 258px;
+    height: 210px;
+}
+
+.seller-name{
+    color: #097DD3; 
+}
+.no-under-line{
+    text-decoration:none; 
+}
+.mail-image{
+    margin-left: 5px;
+}
+
+.item-border{
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: 72px;
+}
+
+
+.day-left{
+    padding-left: 66px;
+}
+
+th.logo, th.seller-btn, th.user {
+  width: 10%;
+  text-align: left;  
+}
+
+
+@media (min-width: 900px) and (max-width: 1279px) {
+    body .navigation-item--electronics, .navigation-item--all, .navigation-item--fashion, .navigation-item--home {   
+        width: 25%;   
+    }
+
+    body .navigation-item--books, .navigation-item--children, .navigation-item--misc{   
+        width: 33.333%;   
+    }
+
+    th.logo, th.seller-btn, th.user {
+        width: 15%;
+        text-align: left;  
+    }
+
+}
+
+@media only screen and (max-width: 899px) {
+    body .navigation-item{   
+        width: 100%;   
+    }
+
+    th.logo, th.seller-btn, th.user {
+        width: 18%;  
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    th.logo, th.seller-btn, th.user {
+        width: 25%;     
+    }
+}
+
+
+
+
+
