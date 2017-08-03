@@ -13,8 +13,9 @@
 }
 .image-logo{
     padding-left: 25px;
-    padding-top: 1px;
+    padding-top: 8px;
     float: left;
+    height: 44px;
 }
 
 .sell-btn{
