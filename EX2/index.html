@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EX 2</title>
+    <link rel="stylesheet" href="\style\app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+    </script>
+</head>
+
+<body>
+    <div class="partx">Part 1</div>
+    <br>
+    <div id="currentDate"></div>
+    <div id="secondDate"></div>
+
+    <br>
+    <br>
+    <div class="partx">Part 2</div>
+    <br> Enter a string:
+    <input type="text" id="part2">
+    <button type="button" onclick="document.getElementById('part2').value = part2()">Capitalize</button>
+
+    <br>
+    <br>
+    <div class="partx">Part 3</div>
+    <br>
+    <br> Enter a number:
+    <input type="text" id="part3">
+    <button type="button" onclick="part3()">Is Prime</button>
+
+    <br>
+    <br>
+    <div class="partx">Part 4</div>
+    <br>
+    <br>
+
+    <table align="center" id="tableID" border="1px" style="cursor: pointer; width: 1000px; height: 400px; text-align: center;">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+    </table>
+
+    <script>
+        function isPrime(num) {
+            if (isNaN(num))
+                return NaN;
+
+            if (num < 2)
+                return 0;
+            if (num % 1 !== 0)
+                return 0;
+
+            s = Math.sqrt(num)
+            for (var i = 2; i <= s; i++)
+                if (num % i === 0) return 0;
+            return 1;
+        }
+
+        function part2() {
+            return toTitleCase(document.getElementById('part2').value);
+        }
+
+        function part3() {
+            var n = document.getElementById('part3').value;
+            var res = isPrime(n);
+            if (res === 0) {
+                alert('Number ' + n + '  is NOT a prime number');
+            }
+            else if (res === 1) {
+                alert('Number ' + n + ' is a prime number');
+            }
+            else if (isNaN(res)) {
+                alert('Input was not a number!');
+            }
+        }
+
+        var table = document.getElementById("tableID");
+        if (table != null) {
+            for (var i = 0; i < table.rows.length; i++) {
+                for (var j = 0; j < table.rows[i].cells.length; j++)
+                    table.rows[i].cells[j].onclick = function () {
+                        tableText(this);
+                    };
+            }
+        }
+        var lastSelected;
+        function tableText(tableCell) {
+            if (lastSelected) {
+                $(lastSelected).removeClass("selected");
+                if (lastSelected === tableCell) {
+                    lastSelected = undefined;
+                }
+                else {
+                    lastSelected = tableCell;
+                    $(tableCell).addClass("selected");
+                }
+            }
+            else {
+                lastSelected = tableCell;
+                $(tableCell).addClass("selected");
+            }
+        }
+
+        //every first letter of every word will be capitalized
+        function toTitleCase(str) {
+            return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1); });
+        }
+
+
+        // LowerCase all except of first letter of every word will be  capitalized
+        function toTitleCase2(str) {
+            return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+        }
+
+        function getFormattedDate(date) {
+            var formatter = new Intl.DateTimeFormat("en", { month: "long" })
+            var dayInMonth = ("0" + currentDate.getDate()).slice(-2);
+            var month = formatter.format(currentDate);
+            var fullYear = currentDate.getFullYear();
+            var hours = ("0" + currentDate.getHours()).slice(-2);
+            var minutes = ("0" + currentDate.getMinutes()).slice(-2);
+            return dayInMonth + "/" + month + "/" + fullYear + " " + hours + ":" + minutes;
+        }
+
+        function dateAddHours(date, h) {
+            date.setHours(date.getHours() + h);
+            return date;
+        }
+        function dateAddMinuts(date, m) {
+            date.setMinutes(date.getMinutes() + m);
+            return date;
+        }
+        function getFormattedDatePlusHoursAndMinutes(date, hoursToAdd, minutesToAdd) {
+            var secondDate = dateAddHours(date, hoursToAdd);
+            secondDate = dateAddMinuts(secondDate, minutesToAdd);
+            return getFormattedDate(secondDate);
+        }
+        var currentDate = new Date();
+
+        document.getElementById("currentDate").innerHTML = getFormattedDate(currentDate);
+        document.getElementById("secondDate").innerHTML = getFormattedDatePlusHoursAndMinutes(currentDate, 36, 30);
+    </script>
+</body>
+
+</html>
