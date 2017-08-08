@@ -6,6 +6,9 @@ class GameController {
     initCells() {
         this._view.initCells(this._model.arrCells);
     }
+    removeTableClickEvent(){
+        this._view.initTableClickEvent(false);
+    }
     calcNeighbors() {
         this._model.calcNeighbors();
     }
@@ -19,7 +22,7 @@ class GameController {
         this._view.buildTable();
     }
     initTableStart() {
-        this._view.initTableStart();
+        this._view.initTableClickEvent(true);
     }
     calcGeneration() {
         this.calcNeighbors();

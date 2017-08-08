@@ -1,5 +1,9 @@
 import Cell from './Cell';
 
+var clickHandler = function () {
+    $(this).addClass("selected");
+}
+
 class GameView {
     constructor(table, numCells) {
         this._table = table;
@@ -35,20 +39,24 @@ class GameView {
         }
     }
 
-    initTableStart() {
+    initTableClickEvent(bindEvent) {
         if (this._table != null) {
             for (var i = 0; i < this._table.rows.length; i++) {
-                for (var j = 0; j < this._table.rows[i].cells.length; j++)
-                    this._table.rows[i].cells[j].onclick = function () {
-                        $(this).addClass("selected");
-                    };
+                for (var j = 0; j < this._table.rows[i].cells.length; j++) {
+                    if (bindEvent) {
+                        $(this._table.rows[i].cells[j]).bind("click", clickHandler);
+                    }
+                    else{
+                        $(this._table.rows[i].cells[j]).unbind("click", clickHandler);
+                    }
+                }
             }
         }
     }
 
     buildTable() {
         var cells = "";
-        for (var i = 0; i <this._numCells; i++) {
+        for (var i = 0; i < this._numCells; i++) {
             cells = cells + "<tr>";
             for (var j = 0; j < this._numCells; j++) {
                 cells = cells + "<td></td>";

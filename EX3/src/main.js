@@ -22,6 +22,7 @@ function init() {
 function startTheGame() {
     $('#box-start').hide();
     gameController.initCells();
+    gameController.removeTableClickEvent();
     gameController.start();
 }
 
