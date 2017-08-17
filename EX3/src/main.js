@@ -26,12 +26,9 @@ function startTheGame() {
     gameController.start();
 }
 
-$(document).ready(function () {
-    $('#btn-build-table').click(function () {
-        init();
-    });
-    $('#btn-start').click(function () {
-        startTheGame();
-    });
-});
+$(document).ready(() => {
+    $('#btn-build-table').click(() => init())
+    $('#btn-start').click(() => startTheGame())
+}
+);
 

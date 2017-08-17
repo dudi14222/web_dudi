@@ -109,10 +109,10 @@ function startTheGame() {
 
 $(document).ready(function () {
     $('#btn-build-table').click(function () {
-        init();
+        return init();
     });
     $('#btn-start').click(function () {
-        startTheGame();
+        return startTheGame();
     });
 });
 
