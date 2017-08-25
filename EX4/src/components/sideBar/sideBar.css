@@ -1,0 +1,39 @@
+@media (min-width: 992px) {
+  .sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    background-color: black;
+    opacity: 0.90;
+  }
+  .social-media{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  }
+}
+
+.sidenav{
+    background-color: black;    
+    opacity: 0.90;
+}
+
+@media (max-width: 768px) {
+    .sidenav{
+    height: 30%;    
+  }
+  .modal-image{
+  height: 350px;
+  }
+}
+.parent-side-SideBar{
+  padding-top: 40px;
+}
+li { cursor: pointer; }
+li{
+  padding-top: 10px;
+}
