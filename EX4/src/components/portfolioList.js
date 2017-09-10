@@ -14,7 +14,9 @@ class PortfolioList extends Component {
         const transitionOptions = {
             transitionName: 'fade',
             transitionEnterTimeout: 500,
-            transitionLeaveTimeout: 800
+            transitionLeaveTimeout: 800,
+            transitionAppear: true,
+            transitionAppearTimeout: 900
         };
         return (
             <div className="item-list">

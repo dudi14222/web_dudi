@@ -1,9 +1,7 @@
 html, body, .container-fluid, .row {
 	height: 100%;
 }
-.main-content{
-  margin-top: 20px;
-}
+
 .main-image:hover{
   -webkit-animation: fadein-image 1s;
   opacity: 0.6;
@@ -57,5 +55,22 @@ html, body, .container-fluid, .row {
 .fade-appear-active{  
   opacity: 1;
   transition: .9s ease-in all;
+}
+.float-right{
+  float: right;
+}
+.raised-2 {
+ box-shadow:  0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+}
+.inner-content{
+  margin-top: 290px;
+}
+.btn-change:hover{
+    -webkit-transform: scale(1.1);
+    background: darkblue;
+}
+
+.btn-change{    
+    -webkit-transition: all 0.5s ease-in-out;        
 }
  

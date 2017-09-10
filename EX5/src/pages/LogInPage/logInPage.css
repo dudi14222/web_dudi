@@ -1,0 +1,10 @@
+.inner-container{
+    border: solid;
+    border-width: 1px;
+    padding: 50px;
+    margin-top: 290px;
+    margin-bottom: 20px;
+}
+.login-button{
+    margin-top: 6px;
+}
