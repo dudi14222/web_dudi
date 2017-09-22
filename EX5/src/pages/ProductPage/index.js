@@ -3,8 +3,9 @@ import {
     Layout
 } from '../../components/';
 import getItemById from '../../services/dataProvider.js';
-import storeData from '../../services/storeData';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {addItem} from '../../actions/actions';
 import './productPage.css';
 class ProductPage extends Component {
     constructor(props) {
@@ -13,8 +14,8 @@ class ProductPage extends Component {
             item: getItemById(this.props.match.params.id)
         }
     }
-    addItem(e){        
-        storeData.addItem(this.state.item);
+    addItem(){                
+        this.props.addItem(this.state.item);
         this.props.history.goBack();        
     }
 
@@ -45,4 +46,5 @@ class ProductPage extends Component {
     }
 }
 
-export default withRouter(ProductPage);
+
+export default connect(null, { addItem })(withRouter(ProductPage));

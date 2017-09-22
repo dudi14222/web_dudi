@@ -21,8 +21,7 @@ let authServiceCheckIsLogedIn = function() {
     return authService.isLogedIn;
 }
 
-const authProvider = (WrappedComponent) => {
- 
+const authProvider = (WrappedComponent, isLogedIn) => {
   return ({ match }) => (
     authServiceCheckIsLogedIn() ? 
       <WrappedComponent {...this.props } match={match}/> : 
@@ -40,7 +39,7 @@ class App extends Component {
           <Route component={ProductPage} path="/products/:id" />
           <Route component={Contact} path="/contact" />                   
           <Route component={Products} path="/products" />
-          <Route component={authProvider(CartPage)} path="/cart" />
+          <Route component={authProvider(CartPage, true)} path="/cart" />
           <Route component={LogInPage} path="/login" />
         </Switch>
       </Router>

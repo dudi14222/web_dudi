@@ -3,16 +3,15 @@ import {
     Header,
     Body
 } from '../components'
-
-
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 import authService from '../services/authenticationService';
-import storeData from '../services/storeData';
 import T from 'i18n-react';
 import heb from '../translations/heb.json';
 import en from '../translations/en.json';
-     
-export default class Layout extends React.Component {
+
+    
+class Layout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -64,7 +63,7 @@ export default class Layout extends React.Component {
     } = this;
     const headerButton = authService.isLogedIn ?         
         {   
-            name: {key: 'Cart', nItems: storeData.getItemCount()},
+            name: {key: 'Cart', nItems: this.props.items.length},
             path: '/cart'
         }
         :
@@ -84,3 +83,10 @@ export default class Layout extends React.Component {
     )
   }
 }
+
+const mapStateToProps = ({cartReducer: {items}}) => ({
+    items: items
+})
+
+export default connect(mapStateToProps, null)(Layout);
+

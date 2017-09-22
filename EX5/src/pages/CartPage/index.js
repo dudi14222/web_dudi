@@ -3,23 +3,13 @@ import {
     Layout,
     CartItem
 } from '../../components/';
-import storeData from '../../services/storeData';
+import {removeItem} from '../../actions/actions';
+import { connect } from 'react-redux';
 import './cartPage.css';
 
 class CartPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: storeData.getItems()
-        }
-    }
     removeItem(itemId) {
-        storeData.removeItem(itemId);
-        let copyItems = [...storeData.getItems()];        
-        this.setState(
-            {
-                items: copyItems
-            });                    
+      this.props.removeItem(itemId);                      
     }
     render() {    
         return (
@@ -31,14 +21,15 @@ class CartPage extends Component {
                                     <tr>
                                         <th>Name</th>
                                         <th>Price</th>
-                                        <th>Quantity</th>   
-                                        <th>Remove</th>                                                                             
+                                        <th>Qty</th> 
+                                        <th></th>    
+                                        <th></th>                                                                             
                                     </tr>
                                 </thead>
                                 <tbody>
                                 
                                     {
-                                        this.state.items.map((item) => {
+                                        this.props.items.map((item) => {
                                             return <CartItem key={item.id} {...item} removeItem={this.removeItem.bind(this)}/>  
                                         })
                                     }
@@ -52,4 +43,8 @@ class CartPage extends Component {
     }
 }
 
-export default CartPage;
+const mapStateToProps = ({cartReducer: {items}}) => ({
+    items: items
+})
+
+export default connect(mapStateToProps, { removeItem })(CartPage);

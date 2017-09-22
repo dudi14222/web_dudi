@@ -1,11 +1,12 @@
 import React from 'react';
-
-const CartItem = ({name, id, price, quantity, removeItem}) => (
+import './cartItem.css';
+const CartItem = ({name, id, price, quantity, removeItem, imageUrl}) => (
     <tr>
         <td>{name}</td>
         <td>{price}</td>
         <td>{quantity}</td>
-        <td><button type="button" className="btn btn-primary" onClick={() => removeItem(id)}>Remove</button></td>                
+        <td><img className="cart-item-image" src={imageUrl}/> </td>
+        <td className="td-remove" onClick={() => removeItem(id)}><label className="lbl-remove-item glyphicon glyphicon-remove"></label><button type="button" className="btn btn-primary btn-remove-item">Remove</button></td>                
     </tr>    
 );
 export default CartItem;

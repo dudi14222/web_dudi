@@ -8,12 +8,7 @@
     display: block;
     background-color: black;
   }
-  .social-media{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  }  
+
 
 .closed{
     display: none;
