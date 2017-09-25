@@ -8,7 +8,10 @@ const SingleInput = (props) => (
         onChange={props.controlFunc}
         placeholder={props.placeholder} 
         className={props.className}
-        id={props.id} required={props.required}  />
+        id={props.id} 
+        required={props.required}
+        disabled={props.disabled}
+          />
  
 );
 

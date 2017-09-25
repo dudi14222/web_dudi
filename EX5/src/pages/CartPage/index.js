@@ -5,6 +5,7 @@ import {
 } from '../../components/';
 import {removeItem} from '../../actions/actions';
 import { connect } from 'react-redux';
+import {getItemsSelector} from '../../reducers/cartReducer';
 import './cartPage.css';
 
 class CartPage extends Component {
@@ -43,8 +44,8 @@ class CartPage extends Component {
     }
 }
 
-const mapStateToProps = ({cartReducer: {items}}) => ({
-    items: items
+const mapStateToProps = (state) => ({
+    items: getItemsSelector(state)
 })
 
 export default connect(mapStateToProps, { removeItem })(CartPage);

@@ -34,3 +34,7 @@ export default (state = INITIAL_STATE, action) =>{
             return state;
     } 
 };
+
+export const getItemsSelector = (state) => {
+    return state.cartReducer.items;
+}

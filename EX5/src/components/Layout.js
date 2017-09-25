@@ -5,10 +5,11 @@ import {
 } from '../components'
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import authService from '../services/authenticationService';
 import T from 'i18n-react';
 import heb from '../translations/heb.json';
 import en from '../translations/en.json';
+import {getItemsSelector} from '../reducers/cartReducer';
+import {getIsLogedInSelector} from '../reducers/userReducer';
 
     
 class Layout extends React.Component {
@@ -48,6 +49,14 @@ class Layout extends React.Component {
     } 
   }
 
+  getItemCount(){
+        let itemCount = 0;
+        for(let i in this.props.items){  
+            itemCount = itemCount + this.props.items[i].quantity;                          
+        } 
+        return itemCount;
+    }
+
   render() { 
     const {         
         open, 
@@ -61,9 +70,9 @@ class Layout extends React.Component {
             showHeaderButton          
         }
     } = this;
-    const headerButton = authService.isLogedIn ?         
+    const headerButton = this.props.isLogedIn ?         
         {   
-            name: {key: 'Cart', nItems: this.props.items.length},
+            name: {key: 'Cart', nItems: this.getItemCount()},
             path: '/cart'
         }
         :
@@ -84,8 +93,9 @@ class Layout extends React.Component {
   }
 }
 
-const mapStateToProps = ({cartReducer: {items}}) => ({
-    items: items
+const mapStateToProps = (state) => ({
+    items: getItemsSelector(state),
+    isLogedIn: getIsLogedInSelector(state)
 })
 
 export default connect(mapStateToProps, null)(Layout);
