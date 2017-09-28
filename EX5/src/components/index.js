@@ -4,7 +4,7 @@ import Body from './Body/';
 import Card from './Card/';
 import CartItem from './CartItem/';
 import Header from './Header/';
-import SingleInput from './singleInput';
+import SingleInput from './SingleInput';
 import SubHeader from './SubHeader';
 import Section from './Section';
 import Heading from './Heading';

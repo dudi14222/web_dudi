@@ -12,7 +12,7 @@ import {getItemsSelector} from '../reducers/cartReducer';
 import {getIsLogedInSelector} from '../reducers/userReducer';
 
     
-class Layout extends React.Component {
+export class Layout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -99,4 +99,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, null)(Layout);
-

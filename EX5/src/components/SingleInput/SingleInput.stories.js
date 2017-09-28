@@ -2,19 +2,17 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import {
   withKnobs,
-  text, boolean, number, object,
+  boolean
 } from '@kadira/storybook-addon-knobs';
 
-import { SingleInput } from '../components/';
+import SingleInput from './';
 
 
-const stories = storiesOf('SingleInput', module);
+const storiesSingleInput = storiesOf('SingleInput', module);
+storiesSingleInput.addDecorator(withKnobs);
 
-stories.addDecorator(withKnobs);
-
-
-stories.addWithInfo('with some props', '', () => {  
-  const story = <SingleInput    
+storiesSingleInput.addWithInfo('with some props', '', () => {
+  const story = <SingleInput
     inputType={'text'}
     controlFunc={action('changed')}
     placeholder={'placeholder'}

@@ -1,5 +1,5 @@
 
-import Layout from './Layout';
+import {Layout} from './Layout';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom'
 import { Header, Body, Menu } from './';
