@@ -13,6 +13,7 @@ html, body, .container-fluid, .row {
 .modal-image-desc{
   padding: 15px;
 }
+
 @media (min-width: 990px) {
   .modal-image{
   height: 450px;
