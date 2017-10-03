@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) =>{
+    console.log(action);
     switch (action.type) {
         case actionTypes.LOG_IN_START:               
             return {...state, isLoading: true};  

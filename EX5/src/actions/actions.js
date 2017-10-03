@@ -4,7 +4,8 @@ export const actionTypes = {
     REMOVE_ITEM: 'REMOVE_ITEM',
     LOG_IN_SUCCESS: 'LOG_IN_SUCCESS',
     LOG_IN_START: 'LOG_IN_START',
-    LOG_IN_FAIL: 'LOG_IN_FAIL'
+    LOG_IN_FAIL: 'LOG_IN_FAIL',
+    LOG_IN: 'LOG_IN'
 }
 
 export const addItem = (item) => ({
@@ -17,30 +18,11 @@ export const removeItem = (id) => ({
     payload: { id: id }
 })
 
-export const logInUser = (email) => ({
+export const logInUser = (email, password) => ({
     type: actionTypes.LOG_IN,
-    payload: { email: email }
+    payload: { email: email, password: password}
 })
 
-export const logIn = (email, password) => (dispatch) => {
-    dispatch({
-        type: actionTypes.LOG_IN_START
-    })
 
-    setTimeout(() => {
-        if (authService.authenticateUser(email, password)) {
-            dispatch({
-                type: actionTypes.LOG_IN_SUCCESS,
-                payload: { email: email }
-            })
-        }
-        else{
-            dispatch({
-                type: actionTypes.LOG_IN_FAIL                
-            })
-        }
-
-    }, 1000);
-}
 
 

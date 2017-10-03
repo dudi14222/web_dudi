@@ -6,7 +6,7 @@ import {
 } from '../../components/';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logIn } from '../../actions/actions';
+import { logInUser } from '../../actions/actions';
 import './logInPage.css';
 
 class LogInPage extends Component {
@@ -31,7 +31,7 @@ class LogInPage extends Component {
     }
     handleAuthenticate(e) {
         e.preventDefault();        
-        this.props.logIn(this.state.email, this.state.password);                    
+        this.props.logInUser(this.state.email, this.state.password);                    
         return false;
     }
 
@@ -87,5 +87,5 @@ const mapStateToProps = ({userReducer: {isLoading, isLogedIn}}) => ({
     isLogedIn
 })
 
-export default connect(mapStateToProps, { logIn })(withRouter(LogInPage));
+export default connect(mapStateToProps, { logInUser })(withRouter(LogInPage));
 
