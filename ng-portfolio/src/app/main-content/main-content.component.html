@@ -1,0 +1,5 @@
+<div class="col-md-10 col-md-offset-2 main-content" [ngSwitch]="selectedOption">
+  <app-portfolio-items *ngSwitchCase="menusOptions.Items"></app-portfolio-items>
+  <app-about *ngSwitchCase="menusOptions.About"></app-about>
+  <app-add-portfolio *ngSwitchCase="menusOptions.AddItem"></app-add-portfolio>
+</div>

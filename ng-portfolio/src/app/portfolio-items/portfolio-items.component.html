@@ -1,0 +1,5 @@
+<div class="item-list">
+  <div *ngFor="let item of items; trackBy: index">
+      <app-portfolio-item [title]="item.title" [imagePath]="item.path" [itemId]="item.id" (onRemoveItem)="removeItem($event)"></app-portfolio-item>
+  </div>  
+</div>

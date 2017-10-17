@@ -1,0 +1,39 @@
+.delete-icon{
+  height: 22px;
+  width: 22px;
+  display: none;
+  float: right;
+}
+
+.thumbnail .delete-icon{
+  margin-right: 0px; 
+}
+.thumbnail .glyphicon-edit{
+  display: none;
+}
+.thumbnail:hover .glyphicon-edit{
+  display: inline;
+  -webkit-animation: fadein 2s;
+}
+.thumbnail:hover .delete-icon{
+  display: inline;
+  -webkit-animation: fadein 2s;
+}
+.parent{
+  height: 15px;
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+img { cursor: pointer; }
+
+.main-image:hover{
+  -webkit-animation: fadein-image 1s;
+  opacity: 0.6;
+}
+@-webkit-keyframes fadein-image {
+    from { opacity: 1; }
+    to   { opacity: 0.6; }
+}

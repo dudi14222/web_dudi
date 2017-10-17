@@ -1,0 +1,12 @@
+<div class="col-md-3 col-sm-3">
+  <div class="thumbnail">
+    <div class="parent">
+      <button type="button" class="glyphicon glyphicon-edit" ></button>
+      <img class="delete-icon" src='/assets/images/delete.png' (click)="onRemoveItemClicked()" />
+    </div>
+    <h4 class="text-center">
+      <u> {{title}}</u>
+    </h4>
+    <img class="main-image" [src]="imagePath" style="width:200px; height:200px" />
+  </div>
+</div>
