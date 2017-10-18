@@ -1,5 +1,8 @@
-<div class="item-list">
+ <div class="item-list" *ngIf="isFetched; else elseBlock">
   <div *ngFor="let item of items; trackBy: index">
       <app-portfolio-item [title]="item.title" [imagePath]="item.path" [itemId]="item.id" (onRemoveItem)="removeItem($event)"></app-portfolio-item>
-  </div>  
-</div>
+  </div>   
+</div> 
+<ng-template #elseBlock>
+  <app-loading-animation></app-loading-animation>
+</ng-template>

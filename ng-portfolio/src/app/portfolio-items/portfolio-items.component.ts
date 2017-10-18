@@ -8,21 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio-items.component.css']
 })
 export class PortfolioItemsComponent implements OnInit {
+  isFetched  = false;
   items: IProduct[] = [];
-  constructor(private itemsService: ItemsService) { 
-    console.log(itemsService.items[0].title);
+  errorMessage: string;
+  constructor(private itemsService: ItemsService) {
   }
 
   ngOnInit() {
+    if (this.itemsService.items === undefined) {
+      this.itemsService.getProducts()
+        .subscribe(products => {
+          this.items = products;
+          this.itemsService.items = products;
+          this.isFetched = true;
+        },
+        error => this.errorMessage = <any>error
+        );
+    }
+    else{
+      this.setItems();
+      this.isFetched = true;
+    }
+  }
+
+  removeItem(id: number): void {
+    this.itemsService.removeItem(id);
     this.setItems();
   }
 
-  removeItem(id: number): void{
-    this.itemsService.removeItem(id);
-    this.setItems();    
-  }
-
-  setItems(): void{
+  setItems(): void {
     this.items = this.itemsService.items;
   }
 }
