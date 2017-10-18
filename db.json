@@ -1,3 +1,4 @@
+{
 [
 {"title": "Bansko", "description":"Bansko is a resort which is developing with extremely fast temps. The concessionaire Ulen provides new opportunities for the skiers, the snowboarders, the extreme sports, biathlon and cross - country skiing.", "path": "/assets/images/bansko.jpg", "id": 1},
 {"title": "Passo Tonale", "description":"On the border between Lombardy and Trentino, Passo Tonale is a natural amphitheatre that marks the border between the Val di Sole and Vallecamonica. It is open to the sun and boasts fantastic views, due to its altitude from 1884 m to 3100 m, between the Ortles-Cevedale and Adamello-Presanella mountain ranges.", "path": "/assets/images/passo-tonale.jpg", "id": 2},
@@ -6,3 +7,4 @@
 {"title": "Spindleruv", "description":"Spindlermühle, formerly also Spindelmühle) is a town in the Hradec Králové Region of the Czech Republic. Located in the Krkonoše (Giant Mountains) range, it is one of the most frequented mountain and ski resorts in the country.", "path": "/assets/images/spindleruv-mlyn.jpg", "id": 5}
 
 ]
+}
