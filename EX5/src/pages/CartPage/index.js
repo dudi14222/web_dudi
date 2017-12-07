@@ -1,51 +1,51 @@
 import React, { Component } from 'react';
 import {
-    Layout,
-    CartItem
+    Layout,    
+    ItemsTable
 } from '../../components/';
-import {removeItem} from '../../actions/actions';
+import { withRouter } from 'react-router-dom';
+import { removeItem, saveCart } from '../../actions/actions';
 import { connect } from 'react-redux';
-import {getItemsSelector} from '../../reducers/cartReducer';
-import './cartPage.css';
+import { getItemsSelector, getIsloadinSelector } from '../../reducers/cartReducer';
+import './cartPage.css'
 
 class CartPage extends Component {
     removeItem(itemId) {
-      this.props.removeItem(itemId);                      
+        this.props.removeItem(itemId);
     }
-    render() {    
+    saveItems() {
+        console.log('saving');
+        console.log(this.props.items);
+        this.props.saveCart(this.props.items);
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.orderSaved){            
+            this.props.history.push('/order-complete');
+        }        
+    }
+
+    render() {
         return (
             <Layout>                
-                    <div className="container">
-                        <div className="table-responsive">          
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Qty</th> 
-                                        <th></th>    
-                                        <th></th>                                                                             
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                
-                                    {
-                                        this.props.items.map((item) => {
-                                            return <CartItem key={item.id} {...item} removeItem={this.removeItem.bind(this)}/>  
-                                        })
-                                    }
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>                                   
+                <button type="button" className="btn-change btn btn-primary float-right save-btn" onClick={() => this.saveItems()}  disabled={this.props.isLoading}>
+                    {this.props.isLoading ?
+                        <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                        :
+                        ''
+                    }
+                    {this.props.isLoading ? ' Saving...' : ' Save'}
+                </button>
+                <ItemsTable items={this.props.items} removeItem={this.removeItem.bind(this)} isCartClosed={this.props.isLoading}/>                
             </Layout>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    items: getItemsSelector(state)
+    items: getItemsSelector(state),
+    isLoading: getIsloadinSelector(state),
+    orderSaved: state.cartReducer.orderSaved    
 })
 
-export default connect(mapStateToProps, { removeItem })(CartPage);
+export default connect(mapStateToProps, { removeItem, saveCart })(withRouter(CartPage));

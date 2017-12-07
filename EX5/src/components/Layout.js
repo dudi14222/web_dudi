@@ -82,7 +82,7 @@ export class Layout extends React.Component {
         };
     return (
         <div className={classNames(["App", className ])} onClick={() => close()}>    
-            <Header showHeaderButton={showHeaderButton} headerButton={headerButton} menuConfig={{ menuState, open, switchLanguage }} >
+            <Header showHeaderButton={showHeaderButton} headerButton={headerButton} menuConfig={{ menuState, open, switchLanguage }} userName={this.props.userName} >
                 {subHeader}
             </Header>
             <Body>
@@ -95,7 +95,8 @@ export class Layout extends React.Component {
 
 const mapStateToProps = (state) => ({
     items: getItemsSelector(state),
-    isLogedIn: getIsLogedInSelector(state)
+    isLogedIn: getIsLogedInSelector(state),
+    userName: state.userReducer.userName
 })
 
 export default connect(mapStateToProps, null)(Layout);

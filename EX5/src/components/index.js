@@ -9,6 +9,8 @@ import SubHeader from './SubHeader';
 import Section from './Section';
 import Heading from './Heading';
 import ProductCard from './ProductCard/';
+import Loading from './Loading/';
+import ItemsTable from './ItemsTable/';
 
 export {
     Layout,
@@ -21,5 +23,7 @@ export {
     SubHeader,
     Section,
     Heading,
-    ProductCard
+    ProductCard,
+    Loading,
+    ItemsTable
 }

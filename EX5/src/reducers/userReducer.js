@@ -2,7 +2,8 @@ import { actionTypes } from '../actions/actions';
 const INITIAL_STATE = {
     isLogedIn: false,
     email: '',
-    isLoading: false
+    isLoading: false,
+    userName: ''
 }
 
 export default (state = INITIAL_STATE, action) =>{
@@ -11,7 +12,7 @@ export default (state = INITIAL_STATE, action) =>{
             return {...state, isLoading: true};  
         
         case actionTypes.LOG_IN_SUCCESS:               
-            return {...state, isLogedIn: true, email: action.payload.email, isLoading: false};
+            return {...state, isLogedIn: true, email: action.payload.email, isLoading: false, userName: action.payload.userName};
         
         case actionTypes.LOG_IN_FAIL:               
             return {...state, isLoading: false};                        

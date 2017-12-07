@@ -26,6 +26,10 @@ const navigationLinks = [
     {
         name: {key: 'LogIn'},
         path: '/login'
+    },
+    {
+        name: {key: 'My Order'},
+        path: '/my-order'
     }
 ]
 

@@ -4,17 +4,25 @@ import './header.css';
 import { Link } from 'react-router-dom';
 import T from 'i18n-react';
 
-const Header = ({ children, menuConfig, headerButton, showHeaderButton}) => (
+const Header = ({ children, menuConfig, headerButton, showHeaderButton, userName }) => (
     <header className="App-header">
-        {showHeaderButton ? 
+        {
+            userName ?
+                <span className="user-name">{userName}</span>:
+                ''        
+        }
+        
+        {showHeaderButton ?
             <Link to={headerButton.path}>
                 <T.button text={{ ...headerButton.name }} type="button" className="btn-change btn btn-primary float-right cart-login-button"></T.button>
-            </Link> 
-        :        
-           ''     
+            </Link>
+            :
+            ''
         }
-        <Menu menuConfig={menuConfig} headerButton={headerButton} /> 
-        <div className="App-subheader">{ children }</div>       
+
+        <Menu menuConfig={menuConfig} headerButton={headerButton} />
+
+        <div className="App-subheader">{children}</div>
     </header>
 )
 

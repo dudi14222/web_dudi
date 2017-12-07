@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Layout
+    Layout    
 } from '../../components/';
 import getItemById from '../../services/dataProvider.js';
 import { withRouter } from 'react-router-dom';
@@ -22,7 +22,7 @@ class ProductPage extends Component {
     render() {   
         const { history } = this.props     
         return (
-            <Layout>
+            <Layout>                
                 <div>
                     <div className="row">
                         <div className="col-md-7 col-sm-7 col-xs-7 col-lg-7">                            

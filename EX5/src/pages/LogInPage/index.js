@@ -21,7 +21,7 @@ class LogInPage extends Component {
 
     componentWillReceiveProps(nextProps){
         if(nextProps.isLogedIn){
-            console.log(this.props.history);
+            console.log(this.props.history);           
             this.props.history.goBack();
         }
         else{
